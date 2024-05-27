@@ -22,3 +22,5 @@ passport.deserializeUser(async (id, done) => {
 });
 
 module.exports = passport;
+
+// http://aromatica.athul.cloud/auth/google/callback

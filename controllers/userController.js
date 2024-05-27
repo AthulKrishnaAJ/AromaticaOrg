@@ -1,7 +1,7 @@
 
 const nodeMailer = require("nodemailer");
 const otpGenerator = require("otp-generator");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 // const toast = require("toastify-js");
 // const jwt = require("jsonwebtoken");
 

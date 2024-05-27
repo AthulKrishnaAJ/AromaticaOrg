@@ -1,5 +1,5 @@
 const nodeMailer = require("nodemailer");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 
 

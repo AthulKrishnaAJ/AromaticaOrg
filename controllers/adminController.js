@@ -5,7 +5,7 @@ const Products = require("../models/productModel");
 const Category = require("../models/categoryModel");
 
 const moment = require('moment')
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const PDF = require('pdfkit');
 const product = require("../models/productModel");
 
