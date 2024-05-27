@@ -1,0 +1,469 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:35 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Aromatica admin</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="admin-assets/imgs/theme/favicon.svg">
+    <!-- Template CSS -->
+    <link href="/admin-assets/css/main.css" rel="stylesheet" type="text/css" />
+   <!-- Include SweetAlert CSS  from CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css"> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<style>
+    .error-message{
+        color: rgb(252, 14, 14);
+        font-size: 12px;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+           <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>  
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- User -->
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/users"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Customers</span>
+                    </a>
+
+                </li>
+
+
+                <!-- Products -->
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/product"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">Products</span>
+                    </a>
+                </li>
+                <!-- <a href="">Hiii</a> -->
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/category"> <i class="icon material-icons md-map"></i>
+                        <span class="text">Category</span>
+                    </a>
+
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/orderList"> <i class="icon material-icons md-shopping_cart"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                  
+                </li>
+             
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/addProduct"> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Add product</span>
+                    </a>
+                  
+                </li>
+               
+               
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getCoupon"> <i class="icon material-icons md-class"></i>
+                        <span class="text">Coupon</span> </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getSalesReport"> <i class="icon material-icons md-description"></i>
+                        <span class="text">Sales Report</span> </a>
+                </li>
+                <hr>
+
+                <li class="menu-item">
+                    <h5><a class="menu-link" href="#!"> <i class="icon material-icons"></i>
+                        <span class="text">Offers</span>
+                    </a> </h5>
+                </li>
+               
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getCategoryOffer"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Category Offer</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getProductOffer"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Product Offer</span>
+                    </a>
+                </li>
+
+                <!-- <li class="menu-item">
+                    <a class="menu-link" href="/admin/banner"> <i class="icon material-icons md-photo_size_select_actual"></i>
+                        <span class="text">Banner</span> </a>
+                </li> -->
+
+               
+             
+            </ul>
+            <hr>
+            <ul class="menu-aside">
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-settings"></i>
+                        <span class="text">Settings</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-settings-1.html">Setting sample 1</a>
+                        <a href="page-settings-2.html">Setting sample 2</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-blank.html"> <i class="icon material-icons md-local_offer"></i>
+                        <span class="text"> Starter page </span>
+                    </a>
+                </li>
+            </ul>
+            <br>
+            <br>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+               
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="#">
+                            <i class="material-icons md-notifications animation-shake"></i>
+                            <span class="badge rounded-pill">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="requestfullscreen nav-link btn-icon"><i class="material-icons md-cast"></i></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownLanguage" aria-expanded="false"><i class="material-icons md-public"></i></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLanguage">
+                            <a class="dropdown-item text-brand" href="#"><img src="admin-assets/imgs/theme/flag-us.png" alt="English">English</a>
+                            <a class="dropdown-item" href="#"><img src="admin-assets/imgs/theme/flag-fr.png" alt="Français">Français</a>
+                            <a class="dropdown-item" href="#"><img src="admin-assets/imgs/theme/flag-jp.png" alt="Français">日本語</a>
+                            <a class="dropdown-item" href="#"><img src="admin-assets/imgs/theme/flag-cn.png" alt="Français">中国人</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="admin-assets/imgs/people/avatar2.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                            <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="/admin/logout"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+<!--Header end------------------------------------------------------------------------->
+
+
+
+
+
+
+<section class="content-main">
+    <div class="content-header">
+        <div>
+            <h2 class="content-title card-title">Sales Report </h2>
+        </div>
+        <div>
+            <a id="xlsheet" onclick="" class="btn btn-light rounded font-md">Download XLSheet</a>
+            <a href="#" id="pdf"  class="btn btn-light rounded  font-md" onclick="downloadPdf()">Download PDF</a>
+        </div>
+    </div>
+    <!-- <div>
+        <p>Overall count : <span class="text-dark"><%= orderCount%></span></p>
+        <p>Overall discount : <span class="text-dark"><%= overAllDiscount%></span></p>
+        <p>Overall order amount : <span class="text-dark"><%= totalAmount%></span></p>
+        <p>Net discount amount : <span class="text-dark"><%= netDiscount%></span></p>
+    </div> -->
+    <div class="card mb-4" id="sortTable">
+        <header class="card-header">
+            <form id="date-wise-report" method="get" action="/admin/getCustomSalesReport">
+                <div class="row gx-3">
+                    <div class="col-lg-2 col-6 col-md-3">
+                        <label class="form-label">Start Date</label>
+                        <input type="date" name="startDate" id="startDate" value="" class="form-control" required>
+                    </div>
+                    <div class="col-lg-2 col-6 col-md-3">
+                        <label class="form-label">End Date</label>
+                        <input type="date" name="endDate" value="" id="endDate" class="form-control" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6 me-auto">
+                        <button type="submit" class="btn btn-primary mt-4  btn-sm rounded">Get Report</button>
+                    </div>
+                </div>
+            </form>
+            <p style="margin-left: 50rem;">Overall count : <span class="text-dark"><%= orderCount%></span></p>
+
+        </header> <!-- card-header end// -->
+        <div id="sales-report" class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" id="salesTable">
+                   <h5 class="text-center">Sales Report</h5><hr>
+
+                   <p> Total sales amount : <span style="margin-left: 10px;">Rs.<%= totalAmount %></span><strong style="margin-left: 10px;">-</strong></p>
+                    <p> Total discount : <span style="margin-left: 38px;">Rs.<%= overAllDiscount %></span></p><hr class="mt-1">
+                    <p class="mb-4"> Net discount : <span style="margin-left: 46px;">Rs.<%= netDiscount%></span></p>
+
+                 
+                    <thead>
+                        <% if(salesOrders && salesOrders.length > 0){%>
+                        <tr>
+                            <th>No</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Payment Method</th>
+                            <th scope="col">Order Status</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Total Amount</th>
+                            <th scope="col">Add discount</th>
+                            <th scope="col">Sales total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="defaultReport">
+                      <% salesOrders.forEach((order, index) => {%>
+
+                            <tr>
+
+                                <td>
+                                    <%= index + 1%>
+                                </td>
+                                
+                                <td style="padding-left: 18px;">
+                                    <%= order.user.name%>
+                                </td>
+                                <td>
+                                   <%= order.createdAt.toLocaleDateString()%>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    <%= order.paymentMethod%>
+                                </td>
+                                <td style="padding-left: 1rem;"><span class="badge rounded-pill alert-success ">
+                                     <%= order.status%>
+                                    </span></td>
+                                <td style="padding-left: 20px;">
+                                        Rs.<%= order.couponDetails.discountAmount%>
+                                </td>
+                                <td style="padding-left: 25px;">
+                                    Rs.<%= order.totalCost + order.couponDetails.discountAmount%>
+                                </td>
+
+                                <td style="padding-left: 25px;">
+                                    Rs.<%= (order.totalCost + order.couponDetails.discountAmount) - order.couponDetails.discountAmount%>
+                                </td>
+
+
+                            </tr>
+                            <%})%>
+                           <tr>
+                            <td colspan="8"> </td>
+                                <td style="padding-left: 15px;" >
+                           Rs.<%= netDiscount%> 
+
+                            </td>
+                            </tr>
+                            
+                            <%}else{%>
+                                <h5 class="text-muted text-center">Sales report not available</h5>
+                        
+                            <%}%>
+                            
+                        </tbody>
+
+                </table>
+                <!-- <input type="hidden" id="salesReportStore" value="ejsout sales "> -->
+            </div> <!-- table-responsive //end -->
+        </div> <!-- card-body end// -->
+    </div> <!-- card end// -->
+    <% if(locals.startDate && locals.endDate){%>
+        <div class="pagination-area mt-15 mb-50">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-start">
+                    <% for(let i = 1; i <= totalPage; i++){%>
+                        <li class="page-item <%= currentPage == i ? 'active' : ''%>">
+                            <a class="page-link" href="/admin/getCustomSalesReport?page=<%= i%>&startDate=<%= locals.startDate%>&endDate=<%= locals.endDate%>" ><%= i %></a>
+                        </li>
+                   <% } %>
+                </ul>
+            </nav>
+        </div>
+
+        <%}else{%>
+    <div class="pagination-area mt-15 mb-50">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-start">
+                <% for(let i = 1; i <= totalPage; i++){%>
+                    <li class="page-item <%= currentPage == i ? 'active' : ''%>">
+                        <a class="page-link" href="/admin/getSalesReport?page=<%= i%>" ><%= i %></a>
+                    </li>
+               <% } %>
+            </ul>
+        </nav>
+    </div>
+<%}%>
+
+</section> <!-- content-main end// -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+    function downloadPdf(){
+        let element = document.getElementById('sales-report');
+        html2pdf().from(element).save();
+    }
+
+
+
+    document.getElementById('xlsheet').addEventListener('click', function(){
+        let table = document.getElementById('sales-report');
+        let wB = XLSX.utils.table_to_book(table);
+        let wBOut = XLSX.write(wB, {bookType: 'xlsx', type: 'binary'});
+
+        function xlsx(xl){
+            let buffer = new ArrayBuffer(xl.length);
+            let view = new Uint8Array(buffer);
+            for(let i = 0; i < xl.length; i++) view[i] = xl.charCodeAt(i) & 0xFF;
+            return buffer;
+        }
+
+        let blob = new Blob([xlsx(wBOut)], {type: 'application/octet-stream'});
+        saveAs(blob, 'table.xlsx');
+    })
+
+    //    document.getElementById('pdf').addEventListener('click', async(event) => {
+    //     event.preventDefault();
+
+    //     const salesTable = document.getElementById('salesTable');
+    //     const tableBody = salesTable.querySelector('tbody');
+
+    //     const salesData = []
+            
+    //         for (const row of tableBody.rows) {
+                
+    //             const dataId = row.cells[1].textContent.trim();
+    //             const name = row.cells[2].textContent;
+    //             const date = row.cells[3].textContent;
+    //             const paymentMethod = row.cells[4].textContent;
+    //             let totalAmount = row.cells[6].textContent.trim();
+    //             totalAmount = parseFloat(totalAmount.replace(/[^0-9]/g, ''), 10);
+                   
+    //             const dataData = {
+    //                 dataId: dataId,
+    //                 name:name,
+    //                 date: date,
+    //                 totalAmount: totalAmount
+    //             }
+
+    //             salesData.push(dataData);
+    //         }
+
+    //         try{
+    //             const response = await fetch('/admin/generatePdf', {
+    //                 method : 'post',
+    //                 headers: {
+    //                     "Content-Type": 'application/json'
+    //                 },
+    //                 body: JSON.stringify(salesData)
+    //             })
+
+    //             if(response.ok){
+    //                 const blob = await response.blob();
+    //                 const url = window.URL.createObjectURL(blob);
+    //                 const a = document.createElement('a');
+    //                 a.href = url;
+    //                 a.download = 'Sales_report.pdf';
+    //                 document.body.appendChild(a);
+    //                 a.click();
+    //                 document.body.removeChild(a);
+    //             }
+    //             else{
+    //                 console.error("Failed to generate pdf");
+    //             }
+    //         }catch(error){
+    //             console.log(error.message);
+    //         }
+
+    //    })
+
+
+        
+</script>
+
+
+
+
+
+<!--Footer start----------------------------------------------------------------------->
+
+
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="admin-assets/js/vendors/jquery-3.6.0.min.js"></script>
+<script src="admin-assets/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="admin-assets/js/vendors/select2.min.js"></script>
+<script src="admin-assets/js/vendors/perfect-scrollbar.js"></script>
+<script src="admin-assets/js/vendors/jquery.fullscreen.min.js"></script>
+<script src="admin-assets/js/vendors/chart.js"></script>
+<!-- Main Script -->
+<script src="admin-assets/js/main.js" type="text/javascript"></script>
+<script src="admin-assets/js/custom-chart.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:57 GMT -->
+</html>

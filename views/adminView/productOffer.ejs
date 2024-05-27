@@ -1,0 +1,1000 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:35 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Aromatica admin</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="admin-assets/imgs/theme/favicon.svg">
+    <!-- Bootstrap CSS -->
+    <link href="/admin-assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template CSS -->
+    <link href="/admin-assets/css/main.css" rel="stylesheet">
+    <!-- Include SweetAlert CSS  from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Bootstrap Datepicker CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+        rel="stylesheet">
+
+    <style>
+        .error-message {
+            color: rgb(252, 14, 14);
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- User -->
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/users"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Customers</span>
+                    </a>
+
+                </li>
+
+
+                <!-- Products -->
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/product"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">Products</span>
+                    </a>
+                </li>
+                <!-- <a href="">Hiii</a> -->
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/category"> <i class="icon material-icons md-map"></i>
+                        <span class="text">Category</span>
+                    </a>
+
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/orderList"> <i class="icon material-icons md-shopping_cart"></i>
+                        <span class="text">Orders</span>
+                    </a>
+
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/addProduct"> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Add product</span>
+                    </a>
+
+                </li>
+
+
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getCoupon"> <i class="icon material-icons md-class"></i>
+                        <span class="text">Coupon</span> </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getSalesReport"> <i
+                            class="icon material-icons md-description"></i>
+                        <span class="text">Sales Report</span> </a>
+                </li>
+                <hr>
+
+                <li class="menu-item">
+                    <h5><a class="menu-link" href="#!"> <i class="icon material-icons"></i>
+                            <span class="text">Offers</span>
+                        </a> </h5>
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getCategoryOffer"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Category Offer</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/getProductOffer"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Product Offer</span>
+                    </a>
+                </li>
+
+                <!-- <li class="menu-item">
+                    <a class="menu-link" href="/admin/banner"> <i class="icon material-icons md-photo_size_select_actual"></i>
+                        <span class="text">Banner</span> </a>
+                </li> -->
+
+
+            </ul>
+            <hr>
+            <ul class="menu-aside">
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-settings"></i>
+                        <span class="text">Settings</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-settings-1.html">Setting sample 1</a>
+                        <a href="page-settings-2.html">Setting sample 2</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-blank.html"> <i class="icon material-icons md-local_offer"></i>
+                        <span class="text"> Starter page </span>
+                    </a>
+                </li>
+            </ul>
+            <br>
+            <br>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i
+                        class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="#">
+                            <i class="material-icons md-notifications animation-shake"></i>
+                            <span class="badge rounded-pill">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="requestfullscreen nav-link btn-icon"><i
+                                class="material-icons md-cast"></i></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownLanguage"
+                            aria-expanded="false"><i class="material-icons md-public"></i></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLanguage">
+                            <a class="dropdown-item text-brand" href="#"><img src="admin-assets/imgs/theme/flag-us.png"
+                                    alt="English">English</a>
+                            <a class="dropdown-item" href="#"><img src="admin-assets/imgs/theme/flag-fr.png"
+                                    alt="Français">Français</a>
+                            <a class="dropdown-item" href="#"><img src="admin-assets/imgs/theme/flag-jp.png"
+                                    alt="Français">日本語</a>
+                            <a class="dropdown-item" href="#"><img src="admin-assets/imgs/theme/flag-cn.png"
+                                    alt="Français">中国人</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount"
+                            aria-expanded="false"> <img class="img-xs rounded-circle"
+                                src="admin-assets/imgs/people/avatar2.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                            <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit
+                                Profile</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account
+                                Settings</a>
+                            <a class="dropdown-item" href="#"><i
+                                    class="material-icons md-account_balance_wallet"></i>Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help
+                                center</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="/admin/logout"><i
+                                    class="material-icons md-exit_to_app"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!--Header end------------------------------------------------------------------------->
+
+
+
+
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Offer </h2>
+                    <p>Add product offer</p>
+                </div>
+                <!-- <div>
+            <input type="text" placeholder="Search cat" class="form-control bg-white">
+        </div> -->
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <% if(locals.errorMessage){%>
+                                <p id="errorMessage" . class="text-danger text-center">
+                                    <%=locals.errorMessage%>
+                                </p>
+                                <%}%>
+                                    <form id="offerForm" enctype="multipart/form-data">
+                                        <div class="mb-4">
+                                            <label for="offerName" class="form-label">Name</label>
+                                            <div><span class="text-danger" id="offerNameError"></span></div>
+                                            <input type="text" name="offerName" placeholder="Type here"
+                                                class="form-control" id="offerName" />
+                                            <span id="nameErrorMessage" class="text-danger text-center"></span>
+                                        </div>
+
+                                        <!-- <div class="mb-4">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <div><span class="text-danger" id="startDateError"></span></div>
+                            <input type="date" name="startDate" class="form-control" id="startDate" />
+                        </div> -->
+
+                                        <div class="mb-4">
+                                            <label for="endDate" class="form-label">End Date</label>
+                                            <div><span class="text-danger" id="endDateError"></span></div>
+                                            <input type="date" name="endDate" class="form-control" id="endDate" />
+                                        </div>
+
+                                        <div class="row gx-2">
+                                            <div class="col-sm-6 mb-3">
+                                                <label class="form-label">Offer type</label>
+                                                <input type="text" value="Product" name="offerType" class="form-control"
+                                                    id="offerType" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="row gx-2" id="productSelectRow">
+                                            <div class="col-sm-6 mb-3">
+                                                <label class="form-label">Available Products</label>
+                                                <select class="form-select border" style="width: 150px;"
+                                                    name="availableProducts" id="availableProducts">
+                                                    <% products.forEach(product=> {%>
+                                                        <option value="<%= product._id%>">
+                                                            <%= product.productName%>
+                                                        </option>
+                                                        <%})%>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label for="product_name" class="form-label">Discount</label>
+                                            <div><span class="text-danger" id="discountError"> </span></div>
+                                            <input type="text" name="discountPrice" placeholder="Type here"
+                                                class="form-control" id="discountPrice" />
+
+                                        </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-primary" type="submit">Add offer</button>
+                                        </div>
+                                    </form>
+
+
+                        </div>
+                        <div class="col-md-7 ml-90" style="width: 39rem;">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                            </th>
+                                            <th>Name</th>
+                                            <th>Product</th>
+                                            <th>Discount</th>
+                                            <th>End date</th>
+                                            <th></th>
+                                            <th>List/Unlist</th>
+                                            <th class="text-start">Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if(productOffer && productOffer.length> 0){%>
+                                            <% productOffer.forEach(product=> {%>
+
+
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <%= product.name%>
+                                                    </td>
+                                                    <td class="text-start">
+                                                        <%= product.productOffer.productId.productName%>
+                                                    </td>
+                                                    <td class="text-start text-center">
+                                                        <%= product.productOffer.discount%>
+                                                    </td>
+                                                    <td class="text-start">
+                                                        <%= product.endDate.toLocaleDateString()%>
+                                                    </td>
+                                                    <td class="text-start">
+                                                        <% if(product.isActive===true){%>
+                                                            <span class="badge rounded-pill alert-success"
+                                                                style="width: 60px;">Listed</span>
+                                                            <%}else{%>
+
+                                                                <span class="badge rounded-pill alert-danger"
+                                                                    style="width: 60px;">Unlisted</span>
+                                                                <%}%>
+
+                                                    </td>
+                                                    <td class="text-start">
+
+                                                        <% if(product.isActive===true){%>
+                                                            <button class="btn btn-danger unList-btn"
+                                                                style="width: 70px;"
+                                                                data-offer-id="<%= product._id%>">Unlist</button>
+                                                            <%}else{%>
+
+                                                                <button class="btn btn-success text-white list-btn"
+                                                                    style="width: 70px;"
+                                                                    data-offer-id="<%= product._id%>">List</button>
+                                                                <%}%>
+                                                    </td>
+                                                    <td class="text-start">
+                                                        <button class="btn btn-dark deleteProductOffer-btn"
+                                                            data-offer-id="<%= product._id%>">
+                                                            <span class="text-danger">Delete</span></button>
+                                                    </td>
+                                                </tr>
+
+                                                <%})%>
+                                                    <%}else{%>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>
+                                                                <h5 class="text-muted text-center">Offers not available
+                                                                </h5>
+                                                            </td>
+                                                        </tr>
+
+                                                        <%}%>
+                                    </tbody>
+
+                                </table>
+
+                                <div class="pagination-area mt-15 mb-50">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-start">
+
+                                            <% for(let i=1; i <=totalPage; i++){%>
+                                                <li class="page-item <%= currentPage == i ? 'active' : ''%>">
+                                                    <a class="page-link" href="/admin/getProductOffer?page=<%= i%>">
+                                                        <%= i%>
+                                                    </a>
+                                                </li>
+                                                <% } %>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </div> <!-- .col// -->
+                    </div> <!-- .row // -->
+                </div> <!-- card body .// -->
+            </div> <!-- card .// -->
+        </section> <!-- content-main end// -->
+
+
+        <!--Edit category offer modal-->
+        <div class="modal fade" id="editOffer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Offer </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editProductForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="editOfferName" class="col-form-label">Name</label>
+                                <div><span class="text-danger" id="editOffernNameError"></span></div>
+                                <input type="text" class="form-control" name="editOfferName" id="editOfferName">
+                                <div id="error3" class="text-danger"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="editOfferStartDate" class="col-form-label">Starting Date
+                                    (YYYY/MM/DD)</label>
+                                <div><span class="text-danger" id="editStartDateError"></span></div>
+                                <input type="date" class="form-control" name="editOfferStartDate"
+                                    id="editOfferStartDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="editOfferEndDate" class="col-form-label">Ending Date (YYYY/MM/DD)</label>
+                                <div><span class="text-danger" id="editEndDateError"></span></div>
+                                <input type="date" class="form-control" name="editOfferEndDate" id="editOfferEndDate">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="category" class="col-form-label">Product</label>
+                                <select name="editProduct" id="editProduct" class="form-select">
+
+                                    <% products.forEach(product=>{%>
+                                        <option class="form-option" value="<%= product._id%>">
+                                            <%= product.productName%>
+                                        </option>
+                                        <%})%>
+
+                                </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="editOfferAmount" class="col-form-label">Discount Amount</label>
+                                <div><span class="text-danger" id="editOfferAmountError"></span></div>
+                                <input type="text" class="form-control" name="editOfferAmount" id="editOfferAmount">
+                                <div id="error4" class="text-danger"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="hidden" class="form-control" id="editOfferId" name="editOfferId" />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Update Offer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+
+                document.querySelectorAll('.deleteProductOffer-btn').forEach(button => {
+                    button.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        let offerId = this.dataset.offerId
+
+                        Swal.fire({
+                            title: "Are you sure?",
+                            text: "Once deleted, you will not be able to recover this offer!",
+                            icon: "question",
+                            showCancelButton: true,
+                            confirmButtonText: 'Delete',
+                            cancelButtonText: 'cancel',
+                            reverseButtons: true,
+                        })
+                            .then((result) => {
+                                if (result.isConfirmed) {
+                                    fetch(`/admin/deleteProductOffer/${offerId}`, {
+                                        method: 'delete'
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                window.location.reload()
+                                            }
+                                            else {
+                                                Swal.fire({
+                                                    text: 'Warning',
+                                                    text: data.message,
+                                                    icon: 'warning',
+                                                    buttons: true
+                                                });
+                                            }
+
+                                        }).catch(error => {
+                                            console.log('Error :', error)
+                                            Swal.fire({
+                                                title: 'Oops!',
+                                                text: 'Something went wrong!',
+                                                icon: 'error'
+                                            })
+                                        })
+                                }
+                            })
+                    })
+                })
+
+
+
+                // document.querySelectorAll('.editOffer-btn').forEach(button => {
+                //     button.addEventListener('click', function(event){
+                //         event.preventDefault();
+
+                //         const offerId = this.dataset.offerId
+
+                //         fetch(`/admin/getProductOfferDetails/${offerId}`, {method : 'get'})
+                //         .then(response => response.json())
+                //         .then(data => {
+                //             if(data.success){
+                //                 const offer = data.offerDetails
+                //                 document.getElementById('editOfferName').value = offer.name
+                //                 document.getElementById('editOfferStartDate').value = formatDate(offer.startDate)
+                //                 document.getElementById('editOfferEndDate').value = formatDate(offer.endDate)
+                //                 document.getElementById('editOfferAmount').value = offer.productOffer.discount
+                //                 document.getElementById('editOfferId').value = offer._id
+
+                //                 const productId = offer.productOffer.productId._id
+                //                 const elementSelected = document.getElementById('editProduct')
+                //                 Array.from(elementSelected.options).forEach(option => {
+                //                     if(option.value === productId){
+                //                         option.selected = true
+                //                     }
+                //                 });
+                //                 $('#editOffer').modal('show')
+                //             }
+                //             else{
+                //                 console.log("Offer details fetching error");
+                //             }
+                //         })
+                //         .catch(error => {
+                //             console.log('Error :', error);
+                //         })
+                //     })
+                // })
+
+                // function formatDate(dateString){
+                //     const date = new Date(dateString)
+                //     const year = date.getFullYear()
+                //     const month = (date.getMonth() + 1).toString().padStart(2, '0')
+                //     const day = date.getDate().toString().padStart(2, '0')
+                //     return `${year}-${month}-${day}`
+                // }
+
+
+
+                // // edit offer form submission
+                // document.getElementById('editProductForm').addEventListener('submit', function(event){
+                //     event.preventDefault();
+
+                //     const editOfferName = document.getElementById('editOfferName').value.trim();
+                //     const editOfferStartDate = document.getElementById('editOfferStartDate').value
+                //     const editOfferEndDate = document.getElementById('editOfferEndDate').value
+                //     const editProductId = document.getElementById('editProduct').value
+                //     const editOfferDiscount = document.getElementById('editOfferAmount').value.trim();
+                //     const offerId = document.getElementById('editOfferId').value
+
+
+                //     let nameRegex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
+                //     let numberRegex = /^\d+$/;
+
+
+                // const currentDate = new Date();
+                // currentDate.setHours(0, 0, 0, 0);
+
+                // let isValid = true
+
+
+                // // offer name validation
+                // if(editOfferName === '' || editOfferName === null){
+                //     $('#editOffernNameError').text('Field is required');
+                //     isValid = false
+                // }
+                // else if(!nameRegex.test(editOfferName)){
+                //     $('#editOffernNameError').text('Enter a valid name');
+                //     isValid = false
+                // }
+                // else{
+                //     $('#editOffernNameError').text('');
+                // }
+
+
+
+                // // start date validation
+                // if(editOfferStartDate === '' || editOfferStartDate === null){
+                //     $('#editStartDateError').text('Field is required');
+                //     isValid = false
+                // }
+                // else if(editOfferStartDate > editOfferEndDate){
+                //     $('#editStartDateError').text('Start date must less than end date');
+                //     isValid = false
+                // }
+                // // else if(new Date(editOfferStartDate) < currentDate){
+                // //     $('#editStartDateError').text('Start date must be future or today');
+                // //     isValid = false
+                // // }
+                // else{
+                //     $('#editStartDateError').text('');
+                // }
+
+
+
+                // // End date validation
+                // if(editOfferEndDate === '' || editOfferEndDate === null){
+                //     $('#editEndDateError').text('Field is required');
+                //     isValid = false
+                // }
+                // else if(editOfferEndDate < editOfferStartDate){
+                //     $('#editEndDateError').text('End date must greater than start date');
+                //     isValid = false
+                // }
+                // // else if(new Date(editOfferEndDate) < currentDate){
+                // //     $('#editEndDateError').text('End date must be future or today');
+                // //     isValid = false
+                // // }
+                // else{
+                //     $('#editEndDateError').text('');
+
+                // }
+
+                // // discount validation
+                // if(editOfferDiscount === '' || editOfferDiscount === null){
+                //     $('#editOfferAmountError').text('Field is required');
+                //     isValid = false
+                // }
+                // else if(!numberRegex.test(editOfferDiscount)){
+                //     $('#editOfferAmountError').text('Should contain only digits');
+                //     isValid = false
+                // }
+                // else{
+                //     $('#editOfferAmountError').text('');
+                // }
+
+
+                //     let formatData = JSON.stringify({
+                //         editOfferName : editOfferName,
+                //         editOfferStartDate : editOfferStartDate,
+                //         editOfferEndDate : editOfferEndDate,
+                //         editProductId : editProductId,
+                //         editOfferDiscount : editOfferDiscount,
+                //         offerId : offerId
+                //     })
+
+                //     if(isValid){
+                //     fetch('/admin/updateProductOffer', {
+                //         method : 'post',
+                //         headers: {
+                //             'Content-Type': 'application/json'
+                //         },
+                //         body : formatData
+                //     })
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         if(data.success){
+                //             $('#editOffer').modal('hide')
+                //             Toastify({
+                //             text: data.message,
+                //             duration: 3000,
+                //             close: true,
+                //             gravity: 'top', 
+                //             position: 'right', 
+                //             backgroundColor: '#28a745'
+                //             }).showToast();
+
+                //             setTimeout(() => {
+                //                 location.reload();
+                //             }, 2000);
+                //         }
+                //         else{
+                //             if(data.validation){
+                //             $('#editOfferAmountError').text(data.validation);
+
+                //             setTimeout(() => {
+                //             $('#editOfferAmountError').text('');
+                //             }, 4000)
+
+                //             }else{
+                //             $('#editOffer').modal('hide')
+
+                //             Toastify({
+                //             text: data.message,
+                //             duration: 3000,
+                //             close: true,
+                //             gravity: 'top',
+                //             position: 'right',
+                //             backgroundColor: '#dc3545'
+                //             }).showToast();
+                //         }
+                //      }
+                //     })
+                //     .catch(error => {
+                //         console.log("Error :", error);
+                //     })
+                //   }
+
+                // })
+
+
+
+
+
+
+
+                document.querySelectorAll('.list-btn').forEach(button => {
+                    button.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const offerId = this.dataset.offerId
+
+                        fetch(`/admin/listProductOffer/${offerId}`, { method: 'put' })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    Toastify({
+                                        text: data.message,
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: 'top',
+                                        position: 'right',
+                                        backgroundColor: '#28a745'
+                                    }).showToast();
+
+                                    setTimeout(() => {
+                                        location.reload();
+                                    }, 2000);
+                                }
+                                else {
+                                    Toastify({
+                                        text: data.message,
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: 'top',
+                                        position: 'right',
+                                        backgroundColor: '#dc3545'
+                                    }).showToast();
+                                }
+                            })
+                            .catch(error => {
+                                console.log("Error :", error);
+                            })
+                    })
+                })
+
+
+
+
+                // unlist product offer
+                document.querySelectorAll('.unList-btn').forEach(button => {
+                    button.addEventListener('click', function (evet) {
+                        event.preventDefault();
+
+                        const offerId = this.dataset.offerId
+
+                        fetch(`/admin/unlistProductOffer/${offerId}`, { method: 'put' })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    Toastify({
+                                        text: data.message,
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: 'top',
+                                        position: 'right',
+                                        backgroundColor: '#28a745'
+                                    }).showToast();
+
+                                    setTimeout(() => {
+                                        location.reload();
+                                    }, 2000);
+                                }
+                                else {
+                                    Toastify({
+                                        text: data.message,
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: 'top',
+                                        position: 'right',
+                                        backgroundColor: '#dc3545'
+                                    }).showToast();
+                                }
+                            })
+                            .catch(error => {
+                                console.log('Error :', error)
+                            })
+                    })
+                })
+
+
+
+
+
+                // add product offer
+                const offerForm = document.getElementById('offerForm')
+                offerForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const offerName = document.getElementById('offerName').value.trim()
+                    // const startDate = document.getElementById('startDate').value
+                    const endDate = document.getElementById('endDate').value
+                    const offerType = document.getElementById('offerType').value
+                    const availableProductId = document.getElementById('availableProducts').value
+                    const discountPrice = document.getElementById('discountPrice').value.trim()
+
+
+
+                    let nameRegex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
+                    let numberRegex = /^\d+$/;
+
+                    const currentDate = new Date()
+                    currentDate.setHours(0, 0, 0, 0);
+
+
+                    // alert(offerName);
+                    // alert(startDate);
+                    // alert(endDate);
+                    // alert(offerType);
+                    // alert(availableCategory);
+                    // alert(discountPrice);
+
+                    let isValid = true
+
+                    // Name validation
+                    if (offerName === '' || offerName === null) {
+                        $('#offerNameError').text('Field is required');
+                        isValid = false
+                    }
+                    else if (!nameRegex.test(offerName)) {
+                        $('#offerNameError').text('Enter a valid name');
+                        isValid = false
+                    }
+                    else {
+                        $('#offerNameError').text('');
+                    }
+
+                    // Start date validation
+                    // if(startDate === '' || startDate === null){
+                    //     $('#startDateError').text('Field is required');
+                    //     isValid = false
+                    // }
+                    // else if(startDate > endDate){
+                    //     $('#startDateError').text('Start date must less than end date');
+                    //     isValid = false
+                    // }
+                    // else if(new Date(startDate) < currentDate){
+                    //     $('#startDateError').text('Start date must be a future date or today');
+                    //     isValid = false
+                    // }
+                    // else{
+                    //     $('#startDateError').text('');
+                    // }
+
+
+                    // End date validation
+                    if (endDate === '' || endDate === null) {
+                        $('#endDateError').text('Field is required');
+                        isValid = false
+                    }
+                    // else if(endDate < startDate){
+                    //     $('#endDateError').text('End date must greater than start date');
+                    //     isValid = false
+                    // }
+                    else if (new Date(endDate) < currentDate) {
+                        $('#endDateError').text('End date must be a future date or today');
+                        isValid = false
+                    }
+                    else {
+                        $('#endDateError').text('');
+                    }
+
+
+
+                    // Discount price validation
+                    if (discountPrice === '' || discountPrice === null) {
+                        $('#discountError').text('Field is required');
+                        isValid = false
+                    }
+                    else if (!numberRegex.test(discountPrice)) {
+                        $('#discountError').text('Should contain only digits');
+                        isValid = false
+                    }
+                    else {
+                        $('#discountError').text('')
+                    }
+
+
+                    const formData = JSON.stringify({
+                        offerName: offerName,
+                        endDate: endDate,
+                        offerType: offerType,
+                        availableProductId: availableProductId,
+                        discountPrice: discountPrice
+                    });
+
+                    if (isValid) {
+
+                        fetch('/admin/addProductOffer', {
+                            method: 'post',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: formData
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+                                if (data.success) {
+                                    Toastify({
+                                        text: data.message,
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: 'top',
+                                        position: 'right',
+                                        backgroundColor: '#28a745'
+                                    }).showToast();
+
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 2000)
+                                }
+                                else {
+                                    if (data.validation) {
+                                        $('#discountError').text(data.validation);
+
+                                        setTimeout(() => {
+                                            $('#discountError').text('');
+                                        }, 4000);
+                                    }
+                                    else {
+                                        Toastify({
+                                            text: data.message,
+                                            duration: 3000,
+                                            close: true,
+                                            gravity: 'top',
+                                            position: 'right',
+                                            backgroundColor: '#dc3545'
+                                        }).showToast();
+                                    }
+                                }
+                            })
+                            .catch(error => {
+                                console.log('Error :', error)
+                            })
+                    }
+
+                })
+            })
+
+        </script>
+
+
+
+        <!--Footer start----------------------------------------------------------------------->
+
+
+    </main>
+
+    <!-- Include SweetAlert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap and other scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="admin-assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="admin-assets/js/vendors/select2.min.js"></script>
+    <script src="admin-assets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="admin-assets/js/vendors/jquery.fullscreen.min.js"></script>
+    <script src="admin-assets/js/vendors/chart.js"></script>
+    <!-- Main Script -->
+    <script src="admin-assets/js/main.js" type="text/javascript"></script>
+    <script src="admin-assets/js/custom-chart.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:57 GMT -->
+
+</html>
