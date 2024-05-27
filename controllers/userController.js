@@ -16,7 +16,7 @@ const Category = require("../models/categoryModel");
 const Order = require("../models/orderModel");
 const Wallet = require('../models/walletModel');
 
-const { use } = require("bcrypt/promises");
+
 const { findById } = require("../models/categoryModel");
 const { query } = require("express");
 const Offer = require("../models/offerModel");
