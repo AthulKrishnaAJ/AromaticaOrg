@@ -1372,7 +1372,7 @@ const insertEmailInEmailverfication = async (req, res) => {
 
         // const token = jwt.sign({email},secretKey,{expiresIn:'15m'});
         // console.log("====>",token)
-        const resetLink = `http://localhost:2012/resetPassword?id=${id}`
+        const resetLink = `http://localhost:3003/resetPassword?id=${id}`
 
         const transpoter = nodeMailer.createTransport({
             service: 'gmail',
