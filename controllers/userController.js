@@ -1423,7 +1423,7 @@ const insertEmailInEmailverfication = async (req, res) => {
         }
 
         const id = userExist._id;
-        const protocol = req.protocol; // http or https
+        const protocol = req.protocol; 
         const host = req.get('host');
         
         const resetLink = `${protocol}://${host}/resetPassword?id=${id}`;

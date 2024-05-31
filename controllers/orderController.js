@@ -12,6 +12,7 @@ const path = require('path');
 
 
 const Razorpay = require("razorpay");
+const Wishlist = require("../models/wihslistModel");
 require('dotenv').config();
 
 
@@ -724,9 +725,11 @@ const userOrderDetailsPage = async (req, res) => {
     try {
         const userId = req.session.user
         const orderId = req.query.orderId
+        const userCart = await Cart.findOne({user: userId});
+        const userWishlist = await Wishlist.findOne({user: userId})
         const order = await Order.findById(orderId).populate('user').populate('items.productId').populate('address.addressId')
 
-        res.render("userView/userOrderDetails", { order: order, user: userId });
+        res.render("userView/userOrderDetails", { order: order, user: userId, userCart: userCart, userWishlist: userWishlist});
     } catch (error) {
         console.log("Error in getting user order detsils : ", error.message);
         res.status(500).send("Internal server error occcur");
