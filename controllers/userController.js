@@ -1358,23 +1358,77 @@ const getEmailVerificationForForgotPassword = async (req, res) => {
 
 
 
+// const insertEmailInEmailverfication = async (req, res) => {
+//     try {
+//         const { email } = req.body
+//         // const secretKey = process.env.SECRET_KEY
+
+//         const userExist = await User.findOne({ email: email });
+//         const id = userExist._id
+
+//         const protocol = req.protocol; // http or https
+//         const host = req.get('host');
+
+//         if (!userExist) {
+//             return res.json({ success: false, message: "User not rejistered" });
+//         }
+
+//         // const token = jwt.sign({email},secretKey,{expiresIn:'15m'});
+//         // console.log("====>",token)
+//         // const resetLink = `http://localhost:3003/resetPassword?id=${id}`
+//         const resetLink = `${protocol}://${host}/resetPassword?id=${id}`;
+
+//         const transpoter = nodeMailer.createTransport({
+//             service: 'gmail',
+//             port: 587,
+//             secure: false,
+//             requireTLS: true,
+//             auth: {
+//                 user: process.env.EMAIL_USER,
+//                 pass: process.env.EMAIL_PASSWORD
+//             }
+//         });
+//         console.log(process.env.EMAIL_USER, "process.env.EMAIL_USERmmm");
+//         const mailOptions = {
+//             from: process.env.EMAIL_USER,
+//             to: email,
+//             subject: 'Password reset link',
+//             html: `<p>You requested a password reset. Click <a href="${resetLink}">Here</a> to reset your password.</p>`
+//         }
+
+//         transpoter.sendMail(mailOptions, (err, info) => {
+//             if (err) {
+//                 console.log("Error in sending link in to the mail => ", err.message);
+//                 return res.json({ success: false, message: "Failed send reset link" });
+//             }
+//             res.json({ success: true, message: "Link sent by email" });
+//         })
+
+//     } catch (error) {
+//         console.log("Error in sending link in email");
+//         res.status(500).send("Internal server error");
+//     }
+// }
+
+
+
 const insertEmailInEmailverfication = async (req, res) => {
     try {
-        const { email } = req.body
-        // const secretKey = process.env.SECRET_KEY
+        const { email } = req.body;
 
         const userExist = await User.findOne({ email: email });
-        const id = userExist._id
 
         if (!userExist) {
-            return res.json({ success: false, message: "User not rejistered" });
+            return res.json({ success: false, message: "User not registered" });
         }
 
-        // const token = jwt.sign({email},secretKey,{expiresIn:'15m'});
-        // console.log("====>",token)
-        const resetLink = `http://localhost:3003/resetPassword?id=${id}`
+        const id = userExist._id;
+        const protocol = req.protocol; // http or https
+        const host = req.get('host');
+        
+        const resetLink = `${protocol}://${host}/resetPassword?id=${id}`;
 
-        const transpoter = nodeMailer.createTransport({
+        const transporter = nodeMailer.createTransport({
             service: 'gmail',
             port: 587,
             secure: false,
@@ -1384,27 +1438,27 @@ const insertEmailInEmailverfication = async (req, res) => {
                 pass: process.env.EMAIL_PASSWORD
             }
         });
-        console.log(process.env.EMAIL_USER, "process.env.EMAIL_USERmmm");
+
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: email,
             subject: 'Password reset link',
-            html: `<p>You requested a password reset. Click <a href="${resetLink}">Here</a> to reset your password.</p>`
-        }
+            html: `<p>You requested a password reset. Click <a href="${resetLink}">here</a> to reset your password.</p>`
+        };
 
-        transpoter.sendMail(mailOptions, (err, info) => {
+        transporter.sendMail(mailOptions, (err, info) => {
             if (err) {
-                console.log("Error in sending link in to the mail => ", err.message);
-                return res.json({ success: false, message: "Failed send reset link" });
+                console.log("Error in sending link to the mail => ", err.message);
+                return res.json({ success: false, message: "Failed to send reset link" });
             }
             res.json({ success: true, message: "Link sent by email" });
-        })
+        });
 
     } catch (error) {
-        console.log("Error in sending link in email");
+        console.log("Error in sending link in email => ", error.message);
         res.status(500).send("Internal server error");
     }
-}
+};
 
 
 
