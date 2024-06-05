@@ -253,12 +253,13 @@ const razorpayInitialization = async (req, res) => {
 
         if(userCart && userCart.items){
             for(const item of userCart.items){
-                let product = await Products.findById(item.product._id);
+                const product = await Products.findById(item.product._id)
                 if(parseInt(item.quantity) > parseInt(product.quantity)){
-                 return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
+                    console.log('Enter quantity checking in placing order');
+                    return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
                 }
             }
-         }
+        }
 
         let razorpayOrder = await razorpay.orders.create({
             amount: userCart.totalCost * 100,

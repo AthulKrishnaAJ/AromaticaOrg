@@ -1447,6 +1447,13 @@ $('#grandTotal').text(`Rs.${newGrandTotal}`);
                             
                             openRazorpayModal(response.razorpayOrder, response.keyId, response.user, selectedAddressId, paymentMethod);
                         }
+                        else{
+                            Swal.fire({
+                            icon : 'warning',
+                            title : "Oops...",
+                            text : response.message, 
+                    })
+                        }
                     },
                     error : (error) => {
                         console.log("Error in ajax :",error);
