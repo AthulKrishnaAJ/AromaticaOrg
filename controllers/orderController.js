@@ -13,6 +13,7 @@ const path = require('path');
 
 const Razorpay = require("razorpay");
 const Wishlist = require("../models/wihslistModel");
+const { default: items } = require("razorpay/dist/types/items");
 require('dotenv').config();
 
 
@@ -250,6 +251,14 @@ const razorpayInitialization = async (req, res) => {
         const user = await User.findById(userId);
         const userCart = await Cart.findOne({ user: userId }).populate('items.product');
 
+        if(userCart && userCart.items){
+           for(const item of userCart.items){
+               let product = await Products.findById(item.product._id);
+               if(parseInt(item.quantity) > parseInt(product.quantity)){
+                return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
+               }
+           }
+        }
 
         let razorpayOrder = await razorpay.orders.create({
             amount: userCart.totalCost * 100,
