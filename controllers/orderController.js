@@ -252,13 +252,13 @@ const razorpayInitialization = async (req, res) => {
         const userCart = await Cart.findOne({ user: userId }).populate('items.product');
 
         if(userCart && userCart.items){
-           for(const item of userCart.items){
-               let product = await Products.findById(item.product._id);
-               if(parseInt(item.quantity) > parseInt(product.quantity)){
-                return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
-               }
-           }
-        }
+            for(const item of userCart.items){
+                let product = await Products.findById(item.product._id);
+                if(parseInt(item.quantity) > parseInt(product.quantity)){
+                 return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
+                }
+            }
+         }
 
         let razorpayOrder = await razorpay.orders.create({
             amount: userCart.totalCost * 100,
@@ -402,14 +402,14 @@ const placeOrder = async (req, res) => {
   
 
         if(userCart && userCart.items){
-        for(const item of userCart.items){
-            const product = await Products.findById(item.product._id)
-            if(parseInt(item.quantity) > parseInt(product.quantity)){
-                console.log('Enter quantity checking in placing order');
-                return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
+            for(const item of userCart.items){
+                const product = await Products.findById(item.product._id)
+                if(parseInt(item.quantity) > parseInt(product.quantity)){
+                    console.log('Enter quantity checking in placing order');
+                    return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
+                }
             }
         }
-    }
     
 
 
