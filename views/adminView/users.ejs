@@ -77,7 +77,6 @@
                 </li>
 
 
-
                 <li class="menu-item">
                     <a class="menu-link" href="/admin/getCoupon"> <i class="icon material-icons md-class"></i>
                         <span class="text">Coupon</span> </a>
@@ -197,9 +196,59 @@
         </header>
 
 
+        <style>
+            .form-label {
+                margin-bottom: 8px;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            .d-grid {
+                margin-top: 20px;
+            }
+
+            .btn-primary {
+                background-color: #3391f7;
+                color: #fff;
+                border: 1px solid #3391f7;
+                border-radius: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+            .btn-primary:hover {
+                background-color: #3391f7;
+                border-color: #3391f7;
+            }
+
+            .btn-danger {
+                background-color: rgba(250, 62, 62, 0.925);
+                border-color: rgba(250, 62, 62, 0.925);
+                border-radius: 10px;
+            }
+
+            .btn-success {
+                background-color: rgba(4, 177, 4, 0.856);
+                border-radius: 10px;
+            }
+
+            .btn-info {
+                background-color: #3086e2dc;
+                border-color: #3086e2dc;
+                border-radius: 8px;
+            }
+        </style>
 
 
-        <!--Header end------------------------------------------------------------------------->
+
+        <!--Header end---------------------------------------------------------------------->
 
 
 
@@ -275,19 +324,14 @@
             </table>
             <!-- card-body end// -->
         </div> <!-- card end// -->
-        <div class="container mt-3">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center mb-20" style="margin-right: 200px;">
-
-                    <% for(let i=1; i <=totalPage; i++){%>
-
-                        <li class="page-item <%=(i === totalPage) ? 'active' : '' %>">
-                            <a class="page-link" href="?page=<%= i %> ">
-                                <%= i %>
-                            </a>
+        <div class="pagination-area mt-15 mb-50 ml-25">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-start">
+                    <% for(let i = 1; i <= totalPage; i++){%>
+                        <li class="page-item <%= currentPage === i ? 'active' : ''%>">
+                            <a class="page-link" href="?page=<%= i%>" ><%= i %></a>
                         </li>
-                        <%} %>
-
+                   <% } %>
                 </ul>
             </nav>
         </div>
@@ -298,9 +342,6 @@
 
 
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
     <script src="admin-assets/js/vendors/jquery-3.6.0.min.js"></script>
     <script src="admin-assets/js/vendors/bootstrap.bundle.min.js"></script>
     <script src="admin-assets/js/vendors/select2.min.js"></script>
