@@ -13,7 +13,6 @@ const path = require('path');
 
 const Razorpay = require("razorpay");
 const Wishlist = require("../models/wihslistModel");
-const { default: items } = require("razorpay/dist/types/items");
 require('dotenv').config();
 
 

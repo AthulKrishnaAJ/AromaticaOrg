@@ -20,13 +20,18 @@ const getCart = async (req, res) => {
             const products = await Products.find({ _id: { $in: productId } })
 
 
+            let totalQuantity = 0;
+            let totalCost = 0;
+
             cart.items.forEach((item) => {
                 const product = products.find(pro => pro._id.equals(item.product._id))
+                if(item.quantity > product.quantity){
+                    item.quantity = product.quantity
+                }
                 item.price = product.salePrice * item.quantity
             });
 
-            let totalQuantity = 0;
-            let totalCost = 0;
+
             cart.items.forEach((item) => {
                 totalQuantity += item.quantity
                 totalCost += item.price
