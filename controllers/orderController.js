@@ -390,10 +390,21 @@ const placeOrder = async (req, res) => {
         if (!userCart) {
             return res.json({ success: false, message: 'Cart not found for user' });
         }
+  
+
+        if(userCart && userCart.items){
+        for(const item of userCart.items){
+            const product = await Products.findById(item.product._id)
+            if(parseInt(item.quantity) > parseInt(product.quantity)){
+                console.log('Enter quantity checking in placing order');
+                return res.json({success: false, message: `The product ${product.productName} has ${product.quantity} left`});
+            }
+        }
+    }
+    
 
 
         let couponDetails = {};
-
         if (userCart.appliedCoupon && userCart.appliedCoupon.length > 0) {
             for (const couponId of userCart.appliedCoupon) {
                 const coupon = await Coupon.findById(couponId)
