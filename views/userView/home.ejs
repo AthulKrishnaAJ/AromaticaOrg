@@ -96,6 +96,8 @@
 		/* Adjust text font size */
 		font-weight: bold;
 		/* Adjust text font weight */
+
+		
 	}
 </style>
 
@@ -122,19 +124,7 @@
 
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-12">
-							<div class="header-top-right">
-								<!-- Header Social Icon -->
-								<div class="header-social-icon">
-									<ul>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
@@ -214,14 +204,14 @@
 																class=""></i></a>
 													</li>
 
-													<li class="small-megamenu-li"><a href="/about">About us<i
+													<li class="small-megamenu-li"><a href="#!">About us<i
 																class=""></i></a>
 													</li>
 
-													<li><a href="/contact">Contact<i class=""></i></a>
+													<li><a href="#!">Contact<i class=""></i></a>
 													</li>
 
-													<li class="sub-menu-li"><a href="/blog" class="new-arrivals">Blog<i
+													<li class="sub-menu-li"><a href="#!" class="new-arrivals">Blog<i
 																class=""></i></a>
 													</li>
 
@@ -473,10 +463,10 @@
 														<div class="product-bottom-action">
 															<div class="product-action">
 																<div class="action-button">
-																	<button class="btn addToWishlistItem" type="button"
-																		data-product-id="<%=product[i]._id%>"><i
-																			class="fa fa fa-heart"></i><span>Add to
-																			wish</span></button>
+																	<button class="btn" type="button"
+																		onclick="addToCart('<%=product[i]._id%>')"><i
+																			class="fa fa fa-shopping-cart"></i> <span>Add to
+																			cart</span></button>
 																</div>
 																<div class="action-view">
 																	<button type="button" class="btn"
@@ -529,10 +519,10 @@
 														<div class="product-bottom-action">
 															<div class="product-action">
 																<div class="action-button">
-																	<button class="btn addToWishlistItem" type="button"
-																		data-product-id="<%=product[i]._id%>"><i
-																			class="fa fa fa-heart"></i> <span>Add to
-																			wish</span></button>
+																	<button class="btn " type="button"
+																		onclick="addToCart('<%=product[i]._id%>')"><i
+																			class="fa fa fa-shopping-cart"></i> <span>Add to
+																			cart</span></button>
 																</div>
 																<div class="action-view">
 																	<button type="button" class="btn"
@@ -650,7 +640,7 @@
 	<!-- QUICKVIEW PRODUCT -->
 	<div id="quickview-wrapper">
 		<!-- Modal -->
-		<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+		<div class="modal fade" id="#!" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -661,42 +651,39 @@
 						<div class="modal-product">
 							<div class="product-images">
 								<div class="main-image images">
-									<img alt="product" src="assets/img/product/sp2.webp">
+									<img alt="" src="">
 								</div>
 							</div><!-- .product-images -->
 
 							<div class="product-info">
-								<h1>Cras neque metus</h1>
+								<h1></h1>
 								<div class="price-box">
 									<p class="price"><span class="special-price"><span
-												class="amount">$155.00</span></span></p>
+												class="amount"></span></span></p>
 								</div>
-								<a href="single-product.html" class="see-all">See all features</a>
+								<a href="single-product.html" class="see-all"></a>
 								<div class="quick-add-to-cart">
 									<form method="post" class="cart">
 										<div class="add-to-box add-to-box2">
 											<div class="add-to-cart">
 												<div class="input-content">
-													<label for="qty">Qty:</label>
+													<label for="qty"></label>
 													<input type="button" value="-" onclick="" class="qty-decrease">
 													<input type="text" name="qty" id="qty" maxlength="12" value="1"
 														title="Qty" class="input-text qty">
 													<input type="button" value="+" onclick="" class="qty-increase">
 												</div>
-												<button class="btn" type="button"><span>Add to cart</span></button>
+												<button class="btn" type="button"><span></span></button>
 											</div>
 										</div>
 									</form>
 								</div>
 								<div class="quick-desc">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est
-									tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis
-									justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id
-									nulla.
+									
 								</div>
 								<div class="social-sharing">
 									<div class="widget widget_socialsharing_widget">
-										<h3 class="widget-title-modal">Share this product</h3>
+										<h3 class="widget-title-modal"></h3>
 										<ul class="social-icons">
 											<li><a target="_blank" title="Facebook" href="#"
 													class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
@@ -713,7 +700,7 @@
 									</div>
 								</div>
 							</div><!-- .product-info -->
-						</div>.modal-product
+						 </div> <!--.modal-product -->
 					</div><!-- .modal-body -->
 				</div><!-- .modal-content -->
 			</div><!-- .modal-dialog -->
@@ -726,45 +713,116 @@
 
 	<script>
 
-		$(document).ready(function () {
-			$('.addToWishlistItem').on('click', function (event) {
-				event.preventDefault();
-				let productId = $(this).data('product-id')
 
-				$.ajax({
-					url: '/wishlist',
-					method: 'post',
-					data: { productId },
-					success: (response) => {
-						if (response.status === true) {
-							Swal.fire({
-								title: 'Success!',
-								text: response.message,
-								icon: 'success',
-								timer: 3000
-							})
-						}
-						else {
-							Swal.fire({
-								title: 'Warning!',
-								text: response.message || "Please login",
-								icon: 'warning',
-								timer: 3000
-							})
-						}
-					},
-					error: (error) => {
-						console.log("ajaxxx error : ", error)
-						Swal.fire({
-							title: 'Error',
-							text: 'somthing went wrong please try again',
-							icon: 'error',
-							timer: 3000
-						})
-					}
-				})
-			})
-		})
+
+function addToCart(productId) {
+            let quantity = 1
+            $.ajax({
+                url: `/addToCart?id=${productId}&quantity=${quantity}`,
+                method: "post",
+                success: (res) => {
+                    if (res.status === true) {
+                        console.log("Enter the success response block");
+                        Swal.fire({
+                            title: "Added to Cart !",
+                            text: "Continue Shopping",
+                            icon: "success",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                    else {
+                        if (res.status === false && res.message === "Out of stock") {
+
+                            Swal.fire({
+                                title: "Out of stock",
+                                text: "Failed to add cart",
+                                icon: "warning",
+                                showConfirmButton: true
+                            });
+                        }
+                        else if (res.status === "Product Unavailable") {
+
+                            Swal.fire({
+                                title: "Product Unavailable",
+                                text: "Selected product is unavailble",
+                                icon: "warning",
+                                showConfirmButton: true
+                            });
+                        }
+                        else {
+
+                            Swal.fire({
+                                title: "Please Login",
+                                text: "Failed to add to cart",
+                                icon: "warning",
+                                showConfirmButton: true
+                            }).then(() => {
+                                window.location.href = "/login"
+                            })
+                        }
+
+
+
+                    }
+
+                },
+
+                error: (error) => {
+                    console.log("Ajax error", error.message);
+
+                    Swal.fire({
+                        title: "Something wrong!",
+                        text: "Failed to add to cart",
+                        icon: "error",
+                        showConfirmButton: true
+                    });
+
+                }
+            });
+        }
+
+
+
+		// $(document).ready(function () {
+		// 	$('.addToWishlistItem').on('click', function (event) {
+		// 		event.preventDefault();
+		// 		let productId = $(this).data('product-id')
+
+		// 		$.ajax({
+		// 			url: '/wishlist',
+		// 			method: 'post',
+		// 			data: { productId },
+		// 			success: (response) => {
+		// 				if (response.status === true) {
+		// 					Swal.fire({
+		// 						title: 'Success!',
+		// 						text: response.message,
+		// 						icon: 'success',
+		// 						timer: 3000
+		// 					})
+		// 				}
+		// 				else {
+		// 					Swal.fire({
+		// 						title: 'Warning!',
+		// 						text: response.message || "Please login",
+		// 						icon: 'warning',
+		// 						timer: 3000
+		// 					})
+		// 				}
+		// 			},
+		// 			error: (error) => {
+		// 				console.log("ajaxxx error : ", error)
+		// 				Swal.fire({
+		// 					title: 'Error',
+		// 					text: 'somthing went wrong please try again',
+		// 					icon: 'error',
+		// 					timer: 3000
+		// 				})
+		// 			}
+		// 		})
+		// 	})
+		// })
 
 
 	</script>

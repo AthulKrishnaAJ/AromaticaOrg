@@ -220,6 +220,8 @@ const insertDetailsInSignUp = async (req, res) => {
                 console.log("This is OTP => ", otp);
 
                 const info = await userHelper.sendOtpByEmail(email, otp);
+                const otpExpirationTime = new Date().getTime() + 120000
+                req.session.otpExpirationTime = otpExpirationTime
 
                 if (info) {
                     req.session.userOtp = otp
@@ -266,7 +268,13 @@ const getOtPage = async (req, res) => {
 const verifyOtp = async (req, res) => {
     try {
         const enteredOtp = req.body.otp
+        const now = new Date().getTime()
+        const otpExpirationTime = req.session.otpExpirationTime
 
+        if(now > otpExpirationTime){
+            return res.json({status: false, message: 'OTP expired, please request new otp'})
+        }
+       
         console.log("entered otp  ====>", enteredOtp);
 
         if (req.session.userOtp === enteredOtp) {
@@ -356,6 +364,8 @@ const resendOtp = async (req, res) => {
         console.log(`${email} & ${newOtp}`)
 
         const info = await userHelper.resendOtpSendByEmail(email, newOtp);
+        const otpExpirationTime = new Date().getTime() + 120000
+        req.session.otpExpirationTime = otpExpirationTime
 
         if (info) {
             req.session.userOtp = newOtp

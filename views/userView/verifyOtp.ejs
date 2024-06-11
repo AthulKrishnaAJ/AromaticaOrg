@@ -98,19 +98,7 @@
                                 
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-12">
-                            <div class="header-top-right">
-                                <!-- Header Social Icon -->
-                                <div class="header-social-icon">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -206,7 +194,7 @@
                                 <input type="number" required="" name="otp" id="otp" class="form-control">
                             </div>
                             <div>
-                                <p id="timer">Time left: <span id="countdown">30</span></p>
+                                <p id="timer">Resend OTP in: <span id="countdown">30</span>s</p>
                                 <a class="text-danger" id="resendLink" style="display: none;"
                                     onclick="resendOtp(event)">Resend OTP</a>
                             </div>
@@ -257,7 +245,7 @@
             }).then((response) => response.json())
                 .then((data) => {
                     if (data.success) {
-                        // If OTP resend successful, show timer and start countdown
+
                         toggleVisible(true);
                         startCountdown(30);
                     } else {
@@ -268,7 +256,7 @@
                 });
         }
 
-        // Call resendOtp when the page is loaded
+       
         window.onload = function () {
             startCountdown(30);
         }
@@ -319,10 +307,26 @@
 
         //----------------------------------------------------------------------------------
 
+        let otpExpirationTime = new Date().getTime() + 120000
+
 
         function handleOtp(event) {
             event.preventDefault();
             const otp = document.getElementById("otp").value
+            const now = new Date().getTime()
+
+            if(now > otpExpirationTime){
+
+                Toastify({
+                            text: "OTP Expired, please request a new otp",
+                            duration: 3000,
+                            close: true,
+                            backgroundcolor: '#dc3545',
+                        
+                        }).showToast()
+                return false;
+            }
+
             $.ajax({
                 url: "/verifyOtp",
                 method: "POST",
@@ -337,8 +341,7 @@
                             text: "OTP verified successfully",
                             duration: 3000,
                             close: true,
-                            backgroundcolor: "green",
-                            position: "center"
+                            backgroundcolor: '#28a745',
                         }).showToast()
 
                         setTimeout(() => {
@@ -348,7 +351,17 @@
                     } else {
 
                         const errorMessage = document.getElementById('errorMessage');
-                        if (response.message) {
+
+                        if(response.status === false && response.message === 'OTP expired, please request new otp'){
+                            Toastify({
+                            text: response.message,
+                            duration: 3000,
+                            close: true,
+                            backgroundcolor: '#dc3545',
+                        
+                        }).showToast()
+                        }
+                        else if (response.message) {
                             errorMessage.innerHTML = response.message
                         }
                         else {
@@ -373,10 +386,6 @@
 
 
     </script>
-
-    <!-- jquery
-    ============================================ -->
-    <!-- <script src="assets/js/vendor/jquery-1.12.4.min.js"></script> -->
 
 
     <!-- sweet alert -->
