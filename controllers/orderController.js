@@ -858,60 +858,6 @@ const getOrderSuccessPage = async (req, res) => {
 }
 
 
-// const generateInvoice = async(req, res) => {
-//     try{
-//         const orderDetails = req.body.orderDetails;
-
-//         const pdfDoc = await PDFDocument.create();
-//         const page = pdfDoc.addPage([600, 800]);
-
-//         const fontSize = 12;
-//         let yPosition = 750;
-
-//         // Add company details
-//         page.drawText('Your Company Name', { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-//         yPosition -= fontSize + 5;
-//         page.drawText('Your Company Address', { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-//         yPosition -= fontSize + 5;
-//         page.drawText('Your City, Your Country', { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-
-//         // Add client details
-//         yPosition -= fontSize + 20;
-//         page.drawText(`Bill To: ${orderDetails.address.name}`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-//         yPosition -= fontSize + 5;
-//         page.drawText(`${orderDetails.address.addressLine}`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-//         yPosition -= fontSize + 5;
-//         page.drawText(`${orderDetails.address.city}, ${orderDetails.address.pincode}, India`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-
-//         // Add invoice details
-//         yPosition -= fontSize + 20;
-//         page.drawText(`Invoice Number: ${orderDetails._id}`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-//         yPosition -= fontSize + 5;
-//         page.drawText(`Invoice Date: ${new Date().toLocaleDateString()}`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-
-//         // Add product details
-//         yPosition -= fontSize + 20;
-//         orderDetails.items.forEach((item, index) => {
-//             page.drawText(`${index + 1}. ${item.productId.name} - ${item.quantity} x ${item.price}`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-//             yPosition -= fontSize + 5;
-//         });
-
-//         // Add total cost
-//         yPosition -= fontSize + 20;
-//         page.drawText(`Total: ${orderDetails.totalCost}`, { x: 50, y: yPosition, size: fontSize, color: rgb(0, 0, 0) });
-
-//         const pdfBytes = await pdfDoc.save();
-
-//         res.setHeader('Content-Type', 'application/pdf');
-//         res.setHeader('Content-Disposition', `attachment; filename=Aromatica_invoice.pdf`);
-//         res.send(pdfBytes);
-
-
-//     }catch(error){
-//         console.log('Error in generating invoice :', error.message);
-//         res.status(500).send('Internal server error');
-//     }
-// }
 
 
 
@@ -933,5 +879,5 @@ module.exports = {
     cancelOrderByAdmin,
     getOrderSuccessPage,
     returnedOrderByUser,
-    // generateInvoice
+    
 }
